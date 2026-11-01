@@ -17,6 +17,7 @@ let started = false;
 let stop_button = document.getElementById("stop");
 let reset_button = document.getElementById("reset");
 let interval_input = document.getElementById("interval");
+let random_button = document.getElementById("random");
 
 function new_board() {
 	let board = new Array(CELL_ROW);
@@ -122,6 +123,15 @@ reset_button.addEventListener("click", () => {
 	for (let i = 0; i < CELL_ROW; i++) {
 		for (let j = 0; j < CELL_COL; j++) {
 			current[i][j] = 0;
+		}
+	}
+	render();
+});
+
+random_button.addEventListener("click", () => {
+	for (let i = 0; i < CELL_ROW; i++) {
+		for (let j = 0; j < CELL_COL; j++) {
+			current[i][j] = Math.round(Math.random());
 		}
 	}
 	render();
